@@ -1,7 +1,7 @@
 <?php
 
-require_once "../projeto/class/classUsuario.php";
-require_once "../projeto/DAO/usuarioDao.php";
+require_once "../project/class/classUsuario.php";
+require_once "../project/DAO/usuarioDao.php";
 
 if(isset($_POST['email']) && isset($_POST['password'])){
 
