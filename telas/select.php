@@ -31,15 +31,43 @@ $dados = $pessoa->lista();
             echo '</td>';
         
             echo '<td>';
-            echo '<a class="btn btn-outline-success" href="alunoUpdate.php?id=' . $obj->getId() . '">VISUALIZAR</a>';
+            echo '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal'.$obj->getId().'">Visualizar</button>';
             echo '</td>';
             echo '<td>';
-            echo'<a class="btn btn-outline-primary" href="alunoUpdate.php?id=' . $obj->getId() . '">ALTERAR</a>';
+            echo'<a class="btn btn-primary" href="alunoUpdate.php?id=' . $obj->getId() . '">ALTERAR</a>';
             echo '</td>';
             echo '<td>';
-            echo'<a class="btn btn-outline-danger" onclick="deletar(' . $obj->getId() . ');">DELETAR</a>';
+            echo'<a class="btn btn-danger" onclick="deletar(' . $obj->getId() . ');">DELETAR</a>';
             echo '</td>';
             echo '</tr>';
+
+        ?>
+       
+
+        <div class="modal fade" id="exampleModal<?php echo $obj->getId()?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <label><b>Nome:</b>&nbsp;</label><?php echo $obj->getNome() ?> </br>
+            <label><b>Email:</b>&nbsp;</label><?php echo $obj->getEmail() ?> </br>
+            <label><b>Telefone:</b>&nbsp;</label><?php echo $obj->getTelefone() ?> </br>
+            <label><b>Celular:</b>&nbsp;</label><?php echo $obj->getCelular() ?> </br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <?php
         }
         ?>
 
