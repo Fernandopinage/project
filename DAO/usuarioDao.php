@@ -43,7 +43,28 @@ class UsuarioDao extends Dao
         $insert->execute();
         if ($insert->rowCount() > 0) {
 
-            header('location: ../telas/painel.php');
+            header('location: ../telas/painel.php?p=add');
         }
+    }
+
+    public function lista(){
+
+        $sql = "SELECT * FROM `usuarios` WHERE 1";
+        $select = $this->con->prepare($sql);
+        $select->execute();
+        $array = array();
+        while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+            $pessoa = new Usuario();
+
+            $pessoa->setId($row["ID_USUARIO"]);
+            $pessoa->setNome($row["NOME_USUARIO"]);
+            $pessoa->setEmail($row["EMAIL_USUARIO"]);
+            $pessoa->setPassword($row["PASS_USUARIO"]);
+            $pessoa->setTelefone($row["TELEFONE_USUARIO"]);
+            $pessoa->setCelular($row["CELULAR_USUARIO"]);
+            $array[] = $pessoa;
+        }
+        return $array;
+
     }
 }

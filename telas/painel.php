@@ -23,6 +23,19 @@ $con = ConnectFactory::getConection();
     <nav class="main-menu">
         <ul>
             <li>
+                <a href="?p=lista">
+                    <i class="fa fa-laptop fa-2x"></i>
+                    <span class="nav-text">
+                        Lista de Usuários
+                    </span>
+                </a>
+
+            </li>
+
+
+        </ul>
+        <ul>
+            <li>
                 <a href="?p=add">
                     <i class="fa fa-laptop fa-2x"></i>
                     <span class="nav-text">
@@ -57,9 +70,15 @@ $con = ConnectFactory::getConection();
 
 
         switch ($pagina) {
+
+            case 'lista':
+                include_once '../telas/select.php';
+                break;
+             
             case 'add':
                 include_once '../telas/add.php';
                 break;
+                
             case 'logout':
                 header('location:../telas/index.php');
                 break;
