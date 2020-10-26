@@ -23,7 +23,7 @@ overflow:visible;
 }
 
 .main-menu {
-background:#4F4F4F;
+background:rgb(36, 53, 66);
 border-right:1px solid #e5e5e5;
 position:absolute;
 top:0;
@@ -134,7 +134,7 @@ background-color:#5fa2db;
 }
 .area{
   padding: 20px;
-  background-color: #4F4F4F;
+  background-color: rgb(36, 53, 66);
 }
 fieldset {
   background-color: #eeeeee;

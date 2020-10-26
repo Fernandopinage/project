@@ -9,7 +9,7 @@ $dados = $pessoa->lista();
 ?>
 
 <table class="table">
-    <thead class="thead-light">
+    <thead class="thead-dark">
         <tr>
             <th scope="col">Codigo</th>
             <th scope="col">Nome</th>
