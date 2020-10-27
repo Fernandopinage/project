@@ -67,4 +67,21 @@ class UsuarioDao extends Dao
         return $array;
 
     }
+
+    public function editar(Usuario $usuario){
+
+        $sql ="UPDATE `usuarios` SET `NOME_USUARIO`=:nome,`EMAIL_USUARIO`=:email,`TELEFONE_USUARIO`=:telefone,`CELULAR_USUARIO`=:celular WHERE `ID_USUARIO`=:id";
+        $update = $this->con->prepare($sql);
+        $update->bindValue(":nome", $usuario->getNome());
+        $update->bindValue(":email", $usuario->getEmail());
+        $update->bindValue(":telefone", $usuario->getTelefone());
+        $update->bindValue(":celular", $usuario->getCelular());
+        $update->execute();
+        if ($update->rowCount()> 0){
+            echo "ok";
+        }else{
+            echo "fudeu";
+        }
+
+    }
 }
