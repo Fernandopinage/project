@@ -37,7 +37,7 @@ $con = ConnectFactory::getConection();
         <ul>
             <li>
                 <a href="?p=add">
-                    <i class="fa fa-laptop fa-2x"></i>
+                    <i class="fa fa-list fa-2x"></i>
                     <span class="nav-text">
                         Novo Usuário
                     </span>
