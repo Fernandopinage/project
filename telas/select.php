@@ -6,19 +6,19 @@ $pessoa = new UsuarioDao();
 $dados = $pessoa->lista();
 
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
   $Usuario = new Usuario();
-  $Usuario->setNome($_POST['id']);
+  $Usuario->setId($_POST['id']);
   $Usuario->setNome($_POST['nome']);
+  $Usuario->setPassword(base64_encode($_POST['pass']));
   $Usuario->setEmail($_POST['email']);
   $Usuario->setTelefone($_POST['telefone']);
   $Usuario->setCelular($_POST['celular']);
+
   
-
   $pessoa = new UsuarioDao();
-  $pessoa->InsertUsuario($Usuario);
-
+  $pessoa->editar($Usuario);
 }
 
 ?>
@@ -96,12 +96,12 @@ if(isset($_POST['submit'])){
               <form action="http://localhost/project/telas/painel.php?p=lista" method="POST">
                 <input type="hidden" class="form-control" name="id" value="<?php echo $obj->getId() ?>">
                 <label><b>Nome:</b>&nbsp;</label><input type="text" class="form-control" name="nome" value="<?php echo $obj->getNome() ?>">
-           
+                <label><b>Password:</b>&nbsp;</label><input type="text" class="form-control" name="pass" value="<?php echo $obj->getPassword() ?>">
                 <label><b>Email:</b>&nbsp;</label><input type="text" class="form-control" name="email" value="<?php echo $obj->getEmail() ?>">
                 <label><b>Telefone:</b>&nbsp;</label><input type="text" class="form-control" name="telefone" value="<?php echo $obj->getTelefone() ?>">
                 <label><b>Celular:</b>&nbsp;</label><input type="text" class="form-control" name="celular" value="<?php echo $obj->getCelular() ?>">
                 <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" name="submit">Salvar</button>
+                  <button type="submit" class="btn btn-primary" name="submit">Salvar</button>
                 </div>
               </form>
 
