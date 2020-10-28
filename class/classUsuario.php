@@ -8,6 +8,7 @@ class Usuario{
     private $password = null;
     private $telefone = null;
     private $celular = null;
+    private $status = null;
 
     public function setId($id){
         $this->id = $id;
@@ -56,6 +57,14 @@ class Usuario{
     public function getCelular()
     {
         return $this->celular;
+    }
+    public function setStatus($status){
+        $this->status = $status;
+
+    }
+    public function getStatus()
+    {
+        return $this->status;
     }
 
 

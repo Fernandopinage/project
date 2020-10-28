@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
   $Usuario->setEmail($_POST['email']);
   $Usuario->setTelefone($_POST['telefone']);
   $Usuario->setCelular($_POST['celular']);
+  $Usuario->setStatus($_POST['stts']);
 
   
   $pessoa = new UsuarioDao();
@@ -52,7 +53,7 @@ if (isset($_POST['submit'])) {
       echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editar' . $obj->getId() . '">Editar</button>';
       echo '</td>';
       echo '<td>';
-      echo '<a class="btn btn-danger" onclick="deletar(' . $obj->getId() . ');">DELETAR</a>';
+      echo '<a class="btn btn-danger" href="'.$obj->getId() .'">DELETAR</a>';
       echo '</td>';
       echo '</tr>';
 
@@ -74,6 +75,7 @@ if (isset($_POST['submit'])) {
               <label><b>Email:</b>&nbsp;</label><?php echo $obj->getEmail() ?> </br>
               <label><b>Telefone:</b>&nbsp;</label><?php echo $obj->getTelefone() ?> </br>
               <label><b>Celular:</b>&nbsp;</label><?php echo $obj->getCelular() ?> </br>
+              <label><b>Status:</b>&nbsp;</label><?php echo $obj->getStatus() ?> </br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -100,6 +102,11 @@ if (isset($_POST['submit'])) {
                 <label><b>Email:</b>&nbsp;</label><input type="text" class="form-control" name="email" value="<?php echo $obj->getEmail() ?>">
                 <label><b>Telefone:</b>&nbsp;</label><input type="text" class="form-control" name="telefone" value="<?php echo $obj->getTelefone() ?>">
                 <label><b>Celular:</b>&nbsp;</label><input type="text" class="form-control" name="celular" value="<?php echo $obj->getCelular() ?>">
+                <label><b>Status Atual:</b>&nbsp;</label><input type="text" class="form-control" readonly  value="<?php echo $obj->getStatus() ?>">
+                <label><b>Status New:</b>&nbsp;</label> <select class="form-control" name="stts"> <option>ADM</option>
+                                                                                              <option>GERENTE</option>
+                                                                                              <option>OPERADOR</option>
+                                                                                            </select>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary" name="submit">Salvar</button>
                 </div>

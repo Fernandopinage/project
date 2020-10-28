@@ -32,14 +32,15 @@ class UsuarioDao extends Dao
 
     public function InsertUsuario(Usuario $Usuario)
     {
-        $sql = "INSERT INTO `usuarios`(`ID_USUARIO`, `NOME_USUARIO`, `EMAIL_USUARIO`, `PASS_USUARIO`, `TELEFONE_USUARIO`, `CELULAR_USUARIO`)
-         VALUES (null,:nome, :email, :pass, :telefone, :celular);";
+        $sql = "INSERT INTO `usuarios`(`ID_USUARIO`, `NOME_USUARIO`, `EMAIL_USUARIO`, `PASS_USUARIO`, `TELEFONE_USUARIO`, `CELULAR_USUARIO`, `STATUS_USUARIO`)
+         VALUES (null,:nome, :email, :pass, :telefone, :celular, :stt);";
         $insert = $this->con->prepare($sql);
         $insert->bindValue(":nome", $Usuario->getNome());
         $insert->bindValue(":email", $Usuario->getEmail());
         $insert->bindValue(":telefone", $Usuario->getTelefone());
         $insert->bindValue(":celular", $Usuario->getCelular());
         $insert->bindValue(":pass", $Usuario->getPassword());
+        $insert->bindValue(":stt", $Usuario->getStatus());
         $insert->execute();
         if ($insert->rowCount() > 0) {
 
@@ -62,6 +63,7 @@ class UsuarioDao extends Dao
             $pessoa->setPassword($row["PASS_USUARIO"]);
             $pessoa->setTelefone($row["TELEFONE_USUARIO"]);
             $pessoa->setCelular($row["CELULAR_USUARIO"]);
+            $pessoa->setStatus($row["STATUS_USUARIO"]);
             $array[] = $pessoa;
         }
         return $array;
@@ -70,7 +72,7 @@ class UsuarioDao extends Dao
 
     public function editar(Usuario $Usuario){
 
-        $sql ="UPDATE `usuarios` SET `NOME_USUARIO`= :nome,`EMAIL_USUARIO`= :email, `PASS_USUARIO` =:pass, `TELEFONE_USUARIO`= :telefone,`CELULAR_USUARIO`= :celular WHERE `ID_USUARIO`= :id";
+        $sql ="UPDATE `usuarios` SET `NOME_USUARIO`= :nome,`EMAIL_USUARIO`= :email, `PASS_USUARIO` =:pass, `TELEFONE_USUARIO`= :telefone,`CELULAR_USUARIO`= :celular, `STATUS_USUARIO` = :stts WHERE `ID_USUARIO`= :id";
         $update = $this->con->prepare($sql);
         $update->bindValue(":nome", $Usuario->getNome());
         $update->bindValue(":email", $Usuario->getEmail());
@@ -78,6 +80,7 @@ class UsuarioDao extends Dao
         $update->bindValue(":telefone", $Usuario->getTelefone());
         $update->bindValue(":celular", $Usuario->getCelular());
         $update->bindValue(":id", $Usuario->getId());
+        $update->bindValue(":stts", $Usuario->getStatus());
         $update->execute();
         
         if ($update->rowCount() > 0) {
@@ -87,5 +90,10 @@ class UsuarioDao extends Dao
             echo 'fudeu';
         }
 
+    }
+
+    public function delete($id){
+
+        echo $id;
     }
 }

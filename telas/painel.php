@@ -1,7 +1,4 @@
 <?php
-require_once "../conection/conection.php";
-$con = ConnectFactory::getConection();
-
 
 ?>
 <html>
@@ -64,11 +61,11 @@ $con = ConnectFactory::getConection();
 
         <?php
 
-
+        
 
         @$pagina = $_GET['p'];
 
-
+    
         switch ($pagina) {
 
             case 'lista':
