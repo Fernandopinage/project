@@ -16,18 +16,28 @@ class UsuarioDao extends Dao
         $select->bindValue(':nome', $email);
         $select->bindValue(':pass', base64_encode($pass));
         $select->execute();
+        
+        $array = array();
+        while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+            $pessoa = new Usuario();
 
-        var_dump($sql);
+            $pessoa->setId($row["ID_USUARIO"]);
+            $pessoa->setNome($row["NOME_USUARIO"]);
+            $pessoa->setEmail($row["EMAIL_USUARIO"]);
+            $pessoa->setPassword($row["PASS_USUARIO"]);
+            $pessoa->setTelefone($row["TELEFONE_USUARIO"]);
+            $pessoa->setCelular($row["CELULAR_USUARIO"]);
+            $pessoa->setStatus($row["STATUS_USUARIO"]);
+            //$array[] = $pessoa;
+        }
+        //var_dump($array);exit();
+        return $pessoa;
 
-        if ($select->rowCount()) {
-
-
+        /** if ($select->rowCount()) {
             header('location:../telas/painel.php');
         } else {
-
-
             header('location:../telas/index.php');
-        }
+        } **/
     }
 
     public function InsertUsuario(Usuario $Usuario)

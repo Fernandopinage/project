@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
               <form action="http://localhost/project/telas/painel.php?p=lista" method="POST">
                 <input type="hidden" class="form-control" name="id" value="<?php echo $obj->getId() ?>">
                 <label><b>Nome:</b>&nbsp;</label><input type="text" class="form-control" name="nome" value="<?php echo $obj->getNome() ?>">
-                <label><b>Password:</b>&nbsp;</label><input type="text" class="form-control" name="pass" value="<?php echo $obj->getPassword() ?>">
+                <label><b>Password:</b>&nbsp;</label><input type="text" class="form-control" name="pass" value="<?php echo base64_decode($obj->getPassword()) ?>">
                 <label><b>Email:</b>&nbsp;</label><input type="text" class="form-control" name="email" value="<?php echo $obj->getEmail() ?>">
                 <label><b>Telefone:</b>&nbsp;</label><input type="text" class="form-control" name="telefone" value="<?php echo $obj->getTelefone() ?>">
                 <label><b>Celular:</b>&nbsp;</label><input type="text" class="form-control" name="celular" value="<?php echo $obj->getCelular() ?>">
