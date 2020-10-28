@@ -20,6 +20,7 @@ session_start();
 
 <body>
     <div class="area">
+    <p class="area"><?php echo $_SESSION["nome"].'<br>';echo $_SESSION["perfil"].'<br>'; ?></p>
     </div>
     <nav class="main-menu">
         <ul>
@@ -59,9 +60,7 @@ session_start();
         
         <?php     
         @$pagina = $_GET['p'];
-       
-        echo 'Usuário :'.$_SESSION["nome"].'<br>';
-        echo 'Perfil :'. $_SESSION["perfil"].'<br>';
+
         switch ($pagina) {
             case 'lista':
                 include_once '../telas/select.php';

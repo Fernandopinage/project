@@ -135,6 +135,10 @@ background-color:#5fa2db;
 .area{
   padding: 20px;
   background-color: rgb(36, 53, 66);
+  color: white;
+}
+p{
+  text-align: right;
 }
 fieldset {
   background-color: #eeeeee;
