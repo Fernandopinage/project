@@ -97,7 +97,7 @@ class UsuarioDao extends Dao
 
             header('location: ../telas/painel.php?p=lista');
         }else{
-            echo 'fudeu';
+            
         }
 
     }
