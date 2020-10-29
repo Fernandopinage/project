@@ -30,8 +30,8 @@ if (isset($_POST['submit'])) {
       <th scope="col">Codigo</th>
       <th scope="col">Nome</th>
       <th scope="col">Visualizar</th>
-      <th scope="col">Editar</th>
-      <th scope="col">Excluir</th>
+      <?php if($_SESSION["perfil"] != 'OPERADOR'){ ?><th scope="col">Editar</th><?php } ?>
+      <?php if($_SESSION["perfil"] != 'OPERADOR' and $_SESSION["perfil"] != 'GERENTE'){ ?><th scope="col">Excluir</th><?php } ?>
     </tr>
   </thead>
   <tbody>
@@ -49,12 +49,17 @@ if (isset($_POST['submit'])) {
       echo '<td>';
       echo '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal' . $obj->getId() . '">Visualizar</button>';
       echo '</td>';
+      if($_SESSION["perfil"] != 'OPERADOR'){
       echo '<td>';
-      echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editar' . $obj->getId() . '">Editar</button>';
-      echo '</td>';
+        
+        echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editar' . $obj->getId() . '">Editar</button>';
+        echo '</td>';
+      }
+      if($_SESSION["perfil"] != 'OPERADOR' and $_SESSION["perfil"] != 'GERENTE'){
       echo '<td>';
       echo '<a class="btn btn-danger" href="'.$obj->getId() .'">DELETAR</a>';
       echo '</td>';
+    }
       echo '</tr>';
 
     ?>
