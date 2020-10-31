@@ -33,11 +33,7 @@ class UsuarioDao extends Dao
         //var_dump($array);exit();
         return $pessoa;
 
-        /** if ($select->rowCount()) {
-            header('location:../telas/painel.php');
-        } else {
-            header('location:../telas/index.php');
-        } **/
+   
     }
 
     public function InsertUsuario(Usuario $Usuario)
