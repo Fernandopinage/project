@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Codigo</th>
+      <th scope="col">Matricula</th>
       <th scope="col">Nome</th>
       <th scope="col">Visualizar</th>
       <?php if($_SESSION["perfil"] != 'OPERADOR'){ ?><th scope="col">Editar</th><?php } ?>

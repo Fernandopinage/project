@@ -26,15 +26,18 @@ if(isset($_POST['enviar'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Turret+Road:wght@200;300&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
 
+   
     <div class="login">
+    
         <div class="login-triangle"></div>
 
-        <h2 class="login-header">Login</h2>
+        <h2 class="login-header" class="">TECNORTE</h2>
 
         <form class="login-container" action="login.php" method="POST">
             <p><input type="email" placeholder="Email" name="email"></p>
